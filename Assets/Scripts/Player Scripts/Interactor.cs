@@ -25,6 +25,8 @@ public class Interactor : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Door")) hit.collider.gameObject.GetComponent<Door>().Open();
 
                 if (hit.collider.gameObject.CompareTag("DoorButton")) hit.collider.gameObject.GetComponent<DoorButton>().Pressed();
+
+                if (hit.collider.gameObject.CompareTag("EndLevel")) hit.collider.gameObject.GetComponent<EndLevel>().Pressed();
             }
         }
     }

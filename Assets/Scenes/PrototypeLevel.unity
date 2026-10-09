@@ -7395,6 +7395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door Button
       objectReference: {fileID: 0}
+    - target: {fileID: 5890045776811400043, guid: 1b7e185894f088a4abf78cb76c14e088, type: 3}
+      propertyPath: m_TagString
+      value: EndLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 6446976441718911532, guid: 1b7e185894f088a4abf78cb76c14e088, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

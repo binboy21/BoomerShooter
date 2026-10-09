@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour
 
             RaycastHit hit;
             Physics.Raycast(camera.position, camera.forward, out hit, maxDistance + 1);
+            Debug.DrawRay(camera.position, camera.forward, Color.green, 0.1f);
 
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {

@@ -10,6 +10,7 @@ TagManager:
   - HealthPickup
   - AmmoPickup
   - GunPickup
+  - EndLevel
   layers:
   - Default
   - TransparentFX
