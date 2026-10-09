@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     {
         shoot = GetComponent<PlayerInput>().actions["Shoot"];
         ammo = 20;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame

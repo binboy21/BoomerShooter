@@ -14,10 +14,15 @@ public class FarEnemy : MonoBehaviour
     private int maxDistance = 10;
     private int damage = 15;
 
+    private float shootDelay = 3f;
+    private float shootTimer;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
         ready = true;
+        shootTimer = 0f;
     }
 
     // Update is called once per frame
@@ -25,7 +30,9 @@ public class FarEnemy : MonoBehaviour
     {
         if (target != null)
         {
+            
             transform.LookAt(target.transform);
+            transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
             if (ready)
             {
                 Attack();
@@ -33,13 +40,15 @@ public class FarEnemy : MonoBehaviour
             else
             {
                 agent.destination = walkPoint;
-                if (this.transform.position == walkPoint) ready = true;
+                if (this.transform.position == walkPoint || shootTimer <= 0) ready = true;
             }
+            shootTimer -= Time.deltaTime;
         }
     }
 
     private void Attack()
     {
+        shootTimer = shootDelay;
         RaycastHit hit;
         Physics.Raycast(gun.position, gun.forward, out hit, maxDistance + 1);
         if(hit.collider.gameObject.CompareTag("Player"))
